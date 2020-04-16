@@ -46,7 +46,7 @@ public class Main {
             new Message()
                     .from(group)
                     .to(message.authorId())
-                    .text("Ты уверен, что хочешь поговорить именно с роботом ?")
+                    .text("")
                     .send();
         });
 
