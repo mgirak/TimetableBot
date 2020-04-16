@@ -14,7 +14,7 @@ public class Main {
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("w");
         AtomicInteger id = new AtomicInteger();
-
+        String sms = "";
 
         group.onSimpleTextMessage(message ->
                 new Message()
@@ -40,13 +40,13 @@ public class Main {
                 .send()
 
                 );
-        group.onCommand("!changeGroup" , message -> {
-            id.set(message.authorId());
+        group.onCommand("!changeGroup"  , message -> {
 
+            //ТЕБЕ СЮДА ААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
             new Message()
                     .from(group)
                     .to(message.authorId())
-                    .text("")
+                    .text(message.getText())
                     .send();
         });
 
