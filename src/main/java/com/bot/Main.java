@@ -40,13 +40,12 @@ public class Main {
                 .send()
 
                 );
-        group.onCommand("!changeGroup"  , message -> {
-
-            //ТЕБЕ СЮДА ААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
+        group.onCommand("!changeGroup\\s\\w{3}-\\d{3}"  , message -> {
+            id.set(message.authorId());
             new Message()
                     .from(group)
                     .to(message.authorId())
-                    .text(message.getText())
+                    .text(id)
                     .send();
         });
 
@@ -65,13 +64,7 @@ public class Main {
                                 .text("Идёт " +WeekCheck.getNumberOfWeek() + "ая неделя , " + WeekCheck.getEvenWeek() + ". " + WeekCheck.getDay())
                                 .send()
         );
-        group.onCommand("!help" , message ->
-                new Message()
-                .from(group)
-                .to(message.authorId())
-                .text(Helper.getHelp())
-                .send()
-                );
+
 
         }
 }
