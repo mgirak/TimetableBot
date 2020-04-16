@@ -14,7 +14,8 @@ public class Main {
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("w");
         AtomicInteger id = new AtomicInteger();
-        String sms = "";
+        String sms = "1";
+        
 
         group.onSimpleTextMessage(message ->
                 new Message()
@@ -42,6 +43,7 @@ public class Main {
                 );
         group.onCommand("!changeGroup\\s\\w{3}-\\d{3}"  , message -> {
             id.set(message.authorId());
+            sms.replaceAll("1" , message.getText());
             new Message()
                     .from(group)
                     .to(message.authorId())
